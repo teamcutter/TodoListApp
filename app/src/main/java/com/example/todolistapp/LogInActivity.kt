@@ -19,6 +19,7 @@ class LogInActivity : AppCompatActivity() {
                     Intent(this, MainActivity::class.java).also {
                         it.putExtra("EXTRA_NAME", binding.logInEdt.text.toString())
                         startActivity(it)
+                        finish()
                     }
             } else {
                 Toast.makeText(this, "Wrong!", Toast.LENGTH_LONG).show()
