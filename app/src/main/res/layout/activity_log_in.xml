@@ -24,15 +24,17 @@
         android:background="@color/white"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        app:cardCornerRadius="8dp"
+        android:layout_marginTop="15dp"
+        app:cardCornerRadius="10dp"
         android:elevation="5dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:background="@color/white"
             android:padding="16dp">
-            
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -45,16 +47,33 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
+                android:layout_marginTop="10dp"
                 android:text="Enter your name here"
-                android:textSize="17sp"/>
+                android:textSize="13sp"/>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingTop="20dp"/>
-            
-        </LinearLayout>
+                android:layout_marginTop="15dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/logIn_edt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Name"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/logIn_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/custom_button"
+                android:layout_marginTop="16dp"
+                android:text="LogIn"
+                android:textColor="@color/white"/>
+
+        </LinearLayout>
     </androidx.cardview.widget.CardView>
 
 
