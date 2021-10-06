@@ -7,6 +7,7 @@ import com.example.todolistapp.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
 
+    val name = intent.getStringExtra("EXTRA_NAME")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
