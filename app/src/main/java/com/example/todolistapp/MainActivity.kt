@@ -14,9 +14,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         val name = intent?.getStringExtra("EXTRA_NAME")
-        val bundle = Bundle()
-        bundle.putString("logName", name)
-        val homeFragment = HomeFragment()
 
         setContentView(binding.root)
         setupActionBarWithNavController(findNavController(R.id.fragment))
