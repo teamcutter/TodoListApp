@@ -7,11 +7,11 @@
         <item android:title="Main">
             <menu>
                 <item
-                    android:id="@id/homeFragment"
+                    android:id="@+id/menuHomeFragment"
                     android:title="Home"
                     android:icon="@drawable/ic_home"/>
                 <item
-                    android:id="@id/noteFragment"
+                    android:id="@+id/menuNoteFragment"
                     android:title="Make note"
                     android:icon="@drawable/ic_note_add" />
             </menu>

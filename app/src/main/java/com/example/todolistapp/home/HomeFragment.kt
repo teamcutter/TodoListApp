@@ -1,4 +1,4 @@
-package com.example.todolistapp
+package com.example.todolistapp.home
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -20,4 +20,9 @@ class HomeFragment : Fragment() {
         return binding.root
     }
 
+    // реализация синглтона
+    companion object{
+        @JvmStatic
+        fun newInstance() : HomeFragment = HomeFragment()
+    }
 }
