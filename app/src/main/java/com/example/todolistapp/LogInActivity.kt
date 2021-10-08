@@ -13,19 +13,18 @@ class LogInActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLogInBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         binding.logInBtn.setOnClickListener {
             if(binding.logInEdt.text.toString().isNotEmpty()) {
-                    Intent(this, MainActivity::class.java).also {
-                        it.putExtra("EXTRA_NAME", binding.logInEdt.text.toString())
-                        startActivity(it)
-                        finish()
-                    }
+                Intent(this, MainActivity::class.java).also {
+                    it.putExtra("EXTRA_NAME", binding.logInEdt.text.toString())
+                    startActivity(it)
+                    finish()
+                }
             } else {
                 Toast.makeText(this, "Wrong!", Toast.LENGTH_LONG).show()
             }
         }
-
-        setContentView(binding.root)
     }
 }
