@@ -31,14 +31,27 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(binding.toolBar)
 
         navController = findNavController(R.id.fragment)
-        appBarConfiguration = AppBarConfiguration(navController.graph, binding.drawerLayout)
+        /** we use setOf to keep hamburger icon while we changing fragment instead of back-arrow
+        in the upper-left corner **/
+        // https://stackoverflow.com/questions/65877046/how-to-keep-showing-the-hamburger-icon-instead-of-the-back-up-icon-after-clicked
+        appBarConfiguration = AppBarConfiguration(setOf(R.id.homeFragment, R.id.noteFragment), binding.drawerLayout)
 
         binding.navigationView.setupWithNavController(navController)
         setupActionBarWithNavController(navController, appBarConfiguration)
 
     }
 
+    // Ask the NavController to handle "navigate up" events.
     override fun onSupportNavigateUp(): Boolean {
         return findNavController(R.id.fragment).navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
+    }
+
+    // Close the drawer when hardware back is pressed.
+    override fun onBackPressed() {
+        if (binding.drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            binding.drawerLayout.closeDrawer(GravityCompat.START)
+        } else {
+            super.onBackPressed()
+        }
     }
 }
