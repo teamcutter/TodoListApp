@@ -33,6 +33,7 @@ class MainActivity : AppCompatActivity() {
         navController = findNavController(R.id.fragment)
         /** we use setOf to keep hamburger icon while we changing fragment instead of back-arrow
         in the upper-left corner **/
+        // https://stackoverflow.com/questions/65877046/how-to-keep-showing-the-hamburger-icon-instead-of-the-back-up-icon-after-clicked
         appBarConfiguration = AppBarConfiguration(setOf(R.id.homeFragment, R.id.noteFragment), binding.drawerLayout)
 
         binding.navigationView.setupWithNavController(navController)
