@@ -1,5 +1,6 @@
 package com.example.todolistapp
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.Gravity
 import android.view.MenuItem
@@ -15,6 +16,7 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.todolistapp.databinding.ActivityMainBinding
+import com.example.todolistapp.databinding.DrawerHeaderBinding
 import com.example.todolistapp.home.HomeFragment
 import com.example.todolistapp.note.NoteFragment
 
@@ -23,22 +25,24 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var navController: NavController
     private lateinit var appBarConfiguration: AppBarConfiguration
+    private lateinit var drawerHeaderBinding: DrawerHeaderBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setSupportActionBar(binding.toolBar)
+        drawerHeaderBinding = DrawerHeaderBinding.inflate(layoutInflater)
+        val extraName = intent.getStringExtra("EXTRA_NAME")
 
         navController = findNavController(R.id.fragment)
         /** we use setOf to keep hamburger icon while we changing fragment instead of back-arrow
         in the upper-left corner **/
         // https://stackoverflow.com/questions/65877046/how-to-keep-showing-the-hamburger-icon-instead-of-the-back-up-icon-after-clicked
         appBarConfiguration = AppBarConfiguration(setOf(R.id.homeFragment, R.id.noteFragment), binding.drawerLayout)
-
         binding.navigationView.setupWithNavController(navController)
         setupActionBarWithNavController(navController, appBarConfiguration)
-
+        Toast.makeText(applicationContext, extraName, Toast.LENGTH_SHORT).show()
     }
 
     // Ask the NavController to handle "navigate up" events.
