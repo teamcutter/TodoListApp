@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Gravity
 import android.view.MenuItem
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
@@ -25,15 +26,17 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var navController: NavController
     private lateinit var appBarConfiguration: AppBarConfiguration
-    private lateinit var drawerHeaderBinding: DrawerHeaderBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setSupportActionBar(binding.toolBar)
-        drawerHeaderBinding = DrawerHeaderBinding.inflate(layoutInflater)
+        // passing extra args to TV of drawer_header
         val extraName = intent.getStringExtra("EXTRA_NAME")
+        val drawerHeaderTV= binding.navigationView.getHeaderView(0).findViewById(R.id.drawer_header_title) as? TextView
+        drawerHeaderTV?.text = "Welcome, $extraName!"
+
 
         navController = findNavController(R.id.fragment)
         /** we use setOf to keep hamburger icon while we changing fragment instead of back-arrow
