@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
         // passing extra args to TV of drawer_header
         val extraName = intent.getStringExtra("EXTRA_NAME")
         val drawerHeaderTV= binding.navigationView.getHeaderView(0).findViewById(R.id.drawer_header_title) as? TextView
-        drawerHeaderTV?.text = "Welcome, $extraName!"
+        drawerHeaderTV?.text = extraName
 
 
         navController = findNavController(R.id.fragment)
