@@ -17,7 +17,7 @@
         <item name="colorSecondary">@color/Droplet</item>
     </style>
 
-    <style name="NoActionBarThemeFullScreen" parent="Theme.AppCompat.NoActionBar">
+    <style name="NoActionBarThemeFullScreen" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="colorPrimary">@color/Basil</item>
         <item name="colorSecondary">@color/Droplet</item>
         <item name="colorPrimaryDark">@color/black</item>
